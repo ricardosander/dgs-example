@@ -1,0 +1,42 @@
+type Query {
+    shows(title: String, filter: ShowFilter): [Show]
+}
+
+type Show {
+    title: String
+    releaseYear: Int
+    endYear: Int
+    seasons: Int
+    parentalGuide: String
+    actors: [Actor]
+    director: Director
+    creators: [Creator]
+    genres: [ShowGenre]
+}
+
+type Creator {
+    name: String
+}
+
+type Director {
+    name: String
+}
+
+type Actor {
+    name: String
+}
+
+input ShowFilter {
+    director: String,
+    genre: ShowGenre
+}
+
+enum ShowGenre {
+    action
+    adventure
+    animation
+    comedy
+    drama
+    fantasy
+    horror
+}
